@@ -1,0 +1,13 @@
+{
+    "name": "climateiq-gcp-batch",
+    "version-string": "unversioned",
+    "homepage": "https://github.com/UrbanSystemsLab/climateiq-flood-model/",
+    "description": "Launches batch jobs for CityCat.",
+    "dependencies": [
+      {
+        "name": "google-cloud-cpp",
+        "default-features": false,
+        "features": ["batch"]
+      }
+    ]
+  }

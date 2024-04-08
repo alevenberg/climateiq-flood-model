@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Starting execute.sh"
+
+echo "CITYCAT_CONFIG_FILE=$CITYCAT_CONFIG_FILE"
+echo "RAINFALL_DATA_FILE=$RAINFALL_DATA_FILE"
+echo "CITYCAT_MOUNT_DIRECTORY=$CITYCAT_MOUNT_DIRECTORY"
+
+chmod -R 775 $CITYCAT_MOUNT_DIRECTORY
+cd $CITYCAT_MOUNT_DIRECTORY
+
+echo "Running citycat"
+wine64 CityCat.exe -c $CITYCAT_CONFIG_FILE -r $RAINFALL_DATA_FILE
+
+echo "Finished execute.sh"
+
