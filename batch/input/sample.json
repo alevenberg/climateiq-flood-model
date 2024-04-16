@@ -1,0 +1,52 @@
+{
+    "name": "projects/climateiq-test/locations/us-central1/jobs/job-luh22rcw",
+    "taskGroups": [
+      {
+        "taskCount": "1",
+        "parallelism": "1",
+        "taskSpec": {
+          "computeResource": {
+            "cpuMilli": "32000",
+            "memoryMib": "98304"
+          },
+          "runnables": [
+            {
+              "container": {
+                "imageUri": "us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-envvar-image:tag1",
+                "entrypoint": "",
+                "volumes": [
+                  "/mnt/disks/share/citycat-flood-model:/mnt/disks/share/citycat-flood-model:rw"
+                ]
+              },
+              "environment": {
+                  "variables": {
+                        "CITYCAT_CONFIG_FILE": "2"
+                   }
+              }
+            }
+          ],
+          "volumes": [
+            {
+              "gcs": {
+                "remotePath": "citycat_reduced_size"
+              },
+              "mountPath": "/mnt/disks/share/citycat-flood-model"
+            }
+          ]
+        }
+      }
+    ],
+    "allocationPolicy": {
+      "instances": [
+        {
+          "policy": {
+            "provisioningModel": "STANDARD",
+            "machineType": "e2-custom-32-98304"
+          }
+        }
+      ]
+    },
+    "logsPolicy": {
+      "destination": "CLOUD_LOGGING"
+    }
+  }
