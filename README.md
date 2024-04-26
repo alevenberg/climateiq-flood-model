@@ -2,7 +2,7 @@
 Runs CityCat flood model.
 
 ## Overview
-The flood model is the CityCat.exe windows executable stored in a GCP bucket. To run CityCat, we containerize the application and run it using wine (a Windows simulator). Then we store the container in the Artifact Registry and run the container using Cloud Batch with mounted buckets.
+The flood model is the CityCat.exe windows executable stored in a GCP bucket. To run CityCat, we containerize the application and run it using wine (Windows simulator). Then, we store the container in the Artifact Registry and run the container using Cloud Batch with mounted buckets.
 
 ## Containerize the application
 
@@ -62,4 +62,57 @@ docker images citycat-image
 ```
 </details>
 
+## Storing the container in the Artifact Registry
 
+1. [If it does not already exist] Create the artifact repository
+2. Build the image
+3. Tag and push the image to the artifact repository
+
+### Create the artifact repository
+
+Authorize via gcloud cli
+```shell
+PROJECT_ID=climateiq-test
+gcloud auth login
+gcloud config set project ${PROJECT_ID} 
+```
+
+Running the following script creates the repository: `citycat-repo`
+```shell
+chmod +x ./artifact-repository/create.sh 
+./artifact-repository/create.sh
+```
+
+<details>
+  <summary>To verify repo was created</summary>
+```
+gcloud artifacts repositories list
+```
+</details>
+
+#### Troubleshooting
+
+<details>
+  <summary>To delete a repo (if you want to change the name or create a new one)</summary>
+```
+gcloud artifacts repositories delete citycat-repo --location=us-central1
+```
+</details>
+
+### Build the image
+Using the steps above in [building the image locally](#to-build-the-image)
+
+### Tag and push the image to the artifact repository
+
+```
+# Tag the image
+TAG=tag2
+docker tag citycat-image:latest us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:${TAG}
+
+# Push the image
+docker push us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:${TAG}
+```
+
+## Running in Cloud Batch
+
+[See instructions](./batch/README.md)
