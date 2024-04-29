@@ -14,11 +14,12 @@ def main():
     parser.add_argument('-r', '--region_id', default='us-central1')
     parser.add_argument('--template_name', default='citycat_template.json')
     parser.add_argument('--dry_run', action=argparse.BooleanOptionalAction)
-    parser.add_argument('--study_area', default=1)
+    parser.add_argument('--study_area', default='studyarea-1')
     parser.add_argument('--config', default=1)
     parser.add_argument('--input_bucket',  default='citycat-input-test')
     parser.add_argument('--configuration_bucket', default='citycat-config-test')
     parser.add_argument('--output_bucket',  default='citycat-output-test')
+    parser.add_argument('--memory', choices=range(16,129),type=int,help="Value must be between 16 and 128", default=96)
 
     args = parser.parse_args()
     print(f"Program arguments {args}")
@@ -27,6 +28,10 @@ def main():
     batch_directory = os.path.dirname(os.path.dirname(__file__))
     with open(os.path.join(batch_directory, "template", args.template_name), 'r') as f:
         template = json.load(f)
+        # Change the memory allocated.
+        memory = str(int(args.memory * 1024)) 
+        template["taskGroups"][0]["taskSpec"]["computeResource"]["memoryMib"] = memory
+        template["allocationPolicy"]["instances"][0]["policy"]["machineType"] =  "e2-custom-32-" +memory
 
     # Read in the config.
     configs = []
@@ -48,7 +53,7 @@ def main():
         r = config["Rainfall_Data"]
         # Creates batch of jobs using the template
         job_uuid = uuid.uuid4().hex[:4]
-        new_jobname = f"r{r}c{c}-studyarea{args.study_area}-config{args.config}-{job_uuid}"
+        new_jobname = f"r{r}c{c}-{args.study_area}-config{args.config}-{job_uuid}"
         with open(os.path.join(jobs_directory, f"{new_jobname}.json"), 'w') as f:
             # Modify the template, then dump it into the jobs folder
             new_job = template
