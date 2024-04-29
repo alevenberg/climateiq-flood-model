@@ -24,12 +24,16 @@ cp $INPUT_MOUNT_DIRECTORY/studyarea_$STUDY_AREA/GreenAreas.txt .
 cp $CONFIG_MOUNT_DIRECTORY/config_$CONFIG/Rainfall_Data_$RAINFALL_DATA_FILE.txt . 
 cp $CONFIG_MOUNT_DIRECTORY/config_$CONFIG/CityCat_Config_$CITYCAT_CONFIG_FILE.txt . 
 
+# Print the log file for debugging
+filename="CityCat_Log.txt"
+tail -f $filename &
+
 # Run CityCat
 if [ "$DRY_RUN" == "true" ]; then
 echo "Dry run enabled, not running CityCat"
 else
-echo "Running citycat"
-wine64 CityCat.exe -c $CITYCAT_CONFIG_FILE -r $RAINFALL_DATA_FILE
+    echo "Running citycat"
+    wine64 CityCat.exe -c $CITYCAT_CONFIG_FILE -r $RAINFALL_DATA_FILE
 fi 
 
 # Zip the output and move the output to the write bucket
@@ -47,6 +51,7 @@ fi
 # Cleanup
 cd ..
 rm -rf run
+pkill tail
 
 echo "Finished execute.sh"
 
