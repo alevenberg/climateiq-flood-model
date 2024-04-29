@@ -26,6 +26,8 @@ cp $CONFIG_MOUNT_DIRECTORY/config_$CONFIG/CityCat_Config_$CITYCAT_CONFIG_FILE.tx
 
 # Print the log file for debugging
 filename="CityCat_Log.txt"
+touch $filename
+"CityCat_Log.txt" > $filename
 tail -f $filename &
 
 # Run CityCat

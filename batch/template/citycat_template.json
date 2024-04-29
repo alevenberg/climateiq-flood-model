@@ -12,7 +12,7 @@
      "runnables": [
       {
        "container": {
-        "imageUri": "us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:tag2",
+        "imageUri": "us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:tag3",
         "entrypoint": ""
        },
        "environment": {
