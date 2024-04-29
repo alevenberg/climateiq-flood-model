@@ -106,7 +106,7 @@ Using the steps above in [building the image locally](#to-build-the-image)
 
 ```
 # Tag the image
-TAG=tag2
+TAG=tag3
 docker tag citycat-image:latest us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:${TAG}
 
 # Push the image
