@@ -13,8 +13,11 @@ RUN apt-get update -y && \
         language-pack-zh-han* \
         locales \
         locales-all \
-        wget \ 
-        zip
+        wget 
+
+RUN apt-get install -y --no-install-recommends \
+    vim \ 
+    zip
 
 # Install Wine
 RUN dpkg --add-architecture i386 && \
