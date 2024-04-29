@@ -29,7 +29,9 @@ def main():
     with open(os.path.join(batch_directory, "template", args.template_name), 'r') as f:
         template = json.load(f)
         # Change the memory allocated.
-        template["taskGroups"][0]["taskSpec"]["computeResource"]["memoryMib"] = str(int(args.memory * 1024))
+        memory = str(int(args.memory * 1024)) 
+        template["taskGroups"][0]["taskSpec"]["computeResource"]["memoryMib"] = memory
+        template["allocationPolicy"]["instances"][0]["policy"]["machineType"] =  "e2-custom-32-" +memory
 
     # Read in the config.
     configs = []
