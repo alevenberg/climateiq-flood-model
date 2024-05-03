@@ -31,7 +31,7 @@ RUN dpkg --add-architecture i386 && \
 ENV INPUT_MOUNT_DIRECTORY=/mnt/disks/share/citycat-input-test
 ENV CONFIG_MOUNT_DIRECTORY=/mnt/disks/share/citycat-config-test
 ENV OUTPUT_MOUNT_DIRECTORY=/mnt/disks/share/citycat-output-test
-ENV STUDY_AREA=1
+ENV STUDY_AREA="studyarea_1"
 ENV CONFIG=1
 ENV CITYCAT_CONFIG_FILE=1
 ENV RAINFALL_DATA_FILE=11
