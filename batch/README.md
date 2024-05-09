@@ -2,6 +2,11 @@
 
 ## Install the requirements
 
+### Make sure the repo is update
+```
+git pull upstream
+```
+
 ### Create a virtual environment 
 
 #### For linux
