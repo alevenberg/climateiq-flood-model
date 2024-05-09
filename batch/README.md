@@ -2,9 +2,9 @@
 
 ## Install the requirements
 
-Create a virtual environment 
+### Create a virtual environment 
 
-### For linux
+#### For linux
 ```
 cd batch
 python3 -m venv env
@@ -12,7 +12,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-### For windows 
+#### For windows 
 
 ```
 cd batch
@@ -20,6 +20,10 @@ py -m venv env
 env\Scripts\activate
 py -m pip install -r requirements.txt
 ```
+
+### Install gcloud CLI
+
+Follow [instructions](https://cloud.google.com/sdk/docs/install-sdk)
 
 ## To run
 
