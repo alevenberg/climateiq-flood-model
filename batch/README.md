@@ -25,6 +25,17 @@ py -m pip install -r requirements.txt
 
 Follow [instructions](https://cloud.google.com/sdk/docs/install-sdk)
 
+Verify using
+
+```
+gcloud --help
+```
+
+Authenticate using:
+```
+gcloud auth application-default login
+```
+
 ## To run
 
 ### For linux
