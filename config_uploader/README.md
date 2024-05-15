@@ -26,14 +26,22 @@ pip install -e .
 ```
 
 ## To run
+You can run the script with
 ```
-upload_citycat_config \
+python config_uploader/main.py
   --rainfall-directory path/to/rainfall/configuation/files \
-  --configuration-name name-for-group-of-configurations \
+  --configuration-name unique-name-for-this-group-of-configurations \
+  --batch-configuration-path path/to/resulting/batch/config/file
+```
+or equivalently, run the executable installed by `pip install -e .`
+```
+upload_citycat_config
+  --rainfall-directory path/to/rainfall/configuation/files \
+  --configuration-name unique-name-for-this-group-of-configurations \
   --batch-configuration-path path/to/resulting/batch/config/file
 ```
 
-See 
+See
 ```
 upload_citycat_config --help
 ```
