@@ -1,0 +1,97 @@
+<CityCatConfiguration>
+    <!-- NumericalScheme - Scheme: 1=HLL,2=HLLC,3=HLLC2,4=Roe,5=Osher,6=OsherGen,7=HLLC2Waf,8=OsherGenWaf 
+         		 - FluxLimiterFunction : 1=Superbee,2=VanLeer,3=VanAlbada,4=Minmod 
+         		 - SlopeLimiterFunction: 1=Superbee,2=VanLeer,3=VanAlbada,4=Minmod -->
+    <NumericalScheme>
+    	  <Scheme>6</Scheme>
+        <FluxLimiterFunction>1</FluxLimiterFunction>
+        <SlopeLimiterFunction>4</SlopeLimiterFunction>
+    </NumericalScheme>
+    <SimulationRunTime units="secs">{{ simulation_run_time }}</SimulationRunTime>
+    <OutputFrequency units="secs">300</OutputFrequency>
+    <InitialDt units="secs">25</InitialDt>
+	<InitialConditionsFileName useInitialConditions="False">R1_C1_T96_5760min.rsl</InitialConditionsFileName>
+    <!-- Buildings algorithm: 0=Cell is removed if it touches a bldg, 1=Cell is removed if 50% is inside a bldg -->
+    <BuildingsAlgorithm>1</BuildingsAlgorithm>
+    <RainfallData spatial="False" zones="2"/>
+    <RoofStorage units="meters">0.00</RoofStorage>
+    <FrictionCoefficients>
+        <CoeffForImpermeableAreas>0.02</CoeffForImpermeableAreas>
+        <CoeffForPermeableAreas>0.035</CoeffForPermeableAreas>
+    </FrictionCoefficients>
+    <Infiltration useInfitration="True" model="GreenAmpt">
+        <InfiltrationParams soilId="1">
+            <HydrConductivity units="cm/hr">1.09</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">11.01</WettingFrontSuctionHead>
+            <EffectivePorosity>0.412</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="2">
+            <HydrConductivity units="cm/hr">0.65</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">16.68</WettingFrontSuctionHead>
+            <EffectivePorosity>0.486</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="3">
+            <HydrConductivity units="cm/hr">0.1</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">20.88</WettingFrontSuctionHead>
+            <EffectivePorosity>0.309</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="4">
+            <HydrConductivity units="cm/hr">0.34</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">8.89</WettingFrontSuctionHead>
+            <EffectivePorosity>0.434</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="5">
+            <HydrConductivity units="cm/hr">2.99</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">6.13</WettingFrontSuctionHead>
+            <EffectivePorosity>0.401</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="6">
+            <HydrConductivity units="cm/hr">11.78</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">4.95</WettingFrontSuctionHead>
+            <EffectivePorosity>0.417</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="11">
+            <HydrConductivity units="cm/hr">1.09</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">11.01</WettingFrontSuctionHead>
+            <EffectivePorosity>0.412</EffectivePorosity>
+            <EffectiveSaturation>0.99</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="12">
+            <HydrConductivity units="cm/hr">0.65</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">16.68</WettingFrontSuctionHead>
+            <EffectivePorosity>0.486</EffectivePorosity>
+            <EffectiveSaturation>0.99</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="13">
+            <HydrConductivity units="cm/hr">0.1</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">20.88</WettingFrontSuctionHead>
+            <EffectivePorosity>0.309</EffectivePorosity>
+            <EffectiveSaturation>0.99</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="14">
+            <HydrConductivity units="cm/hr">0.34</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">8.89</WettingFrontSuctionHead>
+            <EffectivePorosity>0.434</EffectivePorosity>
+            <EffectiveSaturation>0.99</EffectiveSaturation>
+        </InfiltrationParams>
+        <InfiltrationParams soilId="16">
+            <HydrConductivity units="cm/hr">11.78</HydrConductivity>
+            <WettingFrontSuctionHead units="cm">4.95</WettingFrontSuctionHead>
+            <EffectivePorosity>0.417</EffectivePorosity>
+            <EffectiveSaturation>0.5</EffectiveSaturation>
+        </InfiltrationParams>
+    </Infiltration>
+    <!-- PermeableAreas: 0=CurrentConfig,1=AllImpermeable,2=AllPermeable -->
+    <PermeableAreas>0</PermeableAreas>
+    <InitSurfaceWaterElevation set="False" spatial="False">0.00</InitSurfaceWaterElevation>
+    <CreateMaxDepthFile fileformat="csv">True</CreateMaxDepthFile>
+    <SubsurfaceNetwork useNetworkModel="False">
+        <MaxDx units="meters">0.50</MaxDx> 
+    </SubsurfaceNetwork>  
+</CityCatConfiguration>
