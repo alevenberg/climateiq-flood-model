@@ -1,6 +1,7 @@
 import argparse
 import collections
 import dataclasses
+import itertools
 import pathlib
 from typing import List, Mapping, Sequence
 
@@ -16,6 +17,9 @@ class _RainEvent:
 
     timestep: int
     rainfall: float
+
+    def __str__(self):
+        return f"{self.timestep} {self.rainfall}"
 
 
 @dataclasses.dataclass(slots=True)
@@ -123,6 +127,14 @@ def _parse_rainfall_config(path: pathlib.Path) -> Sequence[_RainEvent]:
             f"Number of rainfall entries found in header: {num_entries} does not "
             f"match actual number of rainfall entries {len(entries)}"
         )
+    for prev_entry, next_entry in itertools.pairwise(entries):
+        if next_entry.timestep - prev_entry.timestep != 300:
+            raise ValueError(
+                "Rainfall entries separated by non-five minute interval: "
+                f"{prev_entry}, {next_entry}. Timesteps must consistently be five "
+                "minutes apart to support model training."
+            )
+
     return entries
 
 
