@@ -104,6 +104,30 @@ def test_parse_rainfall_config_bad_entry():
     assert "rainfall configuration entry: 600" in str(excinfo.value)
 
 
+def test_parse_rainfall_config_bad_time_interval():
+    """Ensures we raise an error if entries are not all 5 minutes apart."""
+    mock_path = mock.Mock(spec=pathlib.Path)
+    mock_path.open.return_value = io.StringIO(
+        textwrap.dedent(
+            """\
+            * * *
+            * * * rainfall ***
+            * * *
+            4
+            * * *
+            0     0.0
+            300   0.1
+            600   0.2
+            5000  0.3
+            """
+        )
+    )
+    with pytest.raises(ValueError) as excinfo:
+        main._parse_rainfall_config(mock_path)
+
+    assert "entries separated by non-five minute interval" in str(excinfo.value)
+
+
 def test_write_batch_config():
     """Ensures we produce correct batch config files."""
     config_file = io.StringIO()
@@ -128,9 +152,9 @@ def test_group_configs_by_duration():
 
     # These two are both 600 seconds long.
     mock_rain_path_1.open.return_value = io.StringIO("3\n0 0.0\n300 0.1\n600 0.2\n")
-    mock_rain_path_2.open.return_value = io.StringIO("3\n0 0.0\n200 0.1\n600 0.2\n")
+    mock_rain_path_2.open.return_value = io.StringIO("3\n0 0.0\n300 0.1\n600 0.2\n")
     # This one is 300 seconds long.
-    mock_rain_path_3.open.return_value = io.StringIO("3\n0 0.0\n200 0.1\n300 0.2\n")
+    mock_rain_path_3.open.return_value = io.StringIO("2\n0 0.0\n300 0.1\n")
 
     mock_dir.rglob.return_value = [
         mock_rain_path_1,
