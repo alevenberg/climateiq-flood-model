@@ -5,3 +5,14 @@ citycat-image/citycat-input-test/studyarea_1/Domain_DEM.asc
 # Omit the CityCat.exe
 citycat-image/citycat-input-test/CityCat.exe
 CityCat.exe
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Plan
+tfplan_dev
+tfplan_prod
