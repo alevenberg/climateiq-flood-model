@@ -4,7 +4,7 @@
 
 ### Make sure the repo is update
 ```
-git pull upstream
+git pull upstream main
 ```
 
 ### Create a virtual environment 
