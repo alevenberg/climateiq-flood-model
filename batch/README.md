@@ -66,3 +66,7 @@ py src/main.py --no-dry_run
 py src/main.py --dry_run --study_area studyarea_2 --memory 128 --config 1
 ```
 
+## To cancel a job
+```
+gcloud batch jobs delete --location=us-central1 <job_name>
+```
