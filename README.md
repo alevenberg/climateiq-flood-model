@@ -6,8 +6,14 @@ The flood model is the CityCat.exe windows executable stored in a GCP bucket. To
 
 ## Modifying the image and storing it in Cloud Batch 
 
-[See instructions](./citycat-image/README.md)
+[See instructions](./citycat_image/README.md)
 
 ## Running in Cloud Batch
 
 [See instructions](./batch/README.md)
+
+## Setting up GCP buckets with Terraform
+[See instructions](./terraform/README.md)
+
+## Config uploader
+[See instructions](./config_uploader/README.md)
