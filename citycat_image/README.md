@@ -97,11 +97,9 @@ Using the steps above in [building the image locally](#to-build-the-image)
 
 ## Tag and push the image to the artifact repository
 
-```
-# Tag the image
-TAG=tag4
-docker tag citycat-image:latest us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:${TAG}
+Running the following script tags and pushes the image
 
-# Push the image
-docker push us-central1-docker.pkg.dev/climateiq-test/citycat-repo/citycat-image:${TAG}
+```shell
+chmod +x ./artifact-repository/submit.sh 
+./artifact-repository/submit.sh
 ```
