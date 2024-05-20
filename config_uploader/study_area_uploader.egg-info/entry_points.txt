@@ -1,0 +1,2 @@
+[console_scripts]
+upload_citycat_config = config_uploader.main:main

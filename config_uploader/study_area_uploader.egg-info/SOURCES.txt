@@ -1,0 +1,11 @@
+README.md
+setup.py
+config_uploader/__init__.py
+config_uploader/main.py
+study_area_uploader.egg-info/PKG-INFO
+study_area_uploader.egg-info/SOURCES.txt
+study_area_uploader.egg-info/dependency_links.txt
+study_area_uploader.egg-info/entry_points.txt
+study_area_uploader.egg-info/requires.txt
+study_area_uploader.egg-info/top_level.txt
+tests/test_main.py

@@ -41,6 +41,12 @@ upload_citycat_config
   --batch-configuration-path path/to/resulting/batch/config/file
 ```
 
+```
+upload_citycat_config --rainfall-directory test_rainfall_directory \
+  --configuration-name walt-test \
+  --batch-configuration-path ./batch.txt
+```
+
 See
 ```
 upload_citycat_config --help
