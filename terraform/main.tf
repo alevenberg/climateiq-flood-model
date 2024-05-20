@@ -10,3 +10,11 @@ resource "google_storage_bucket" "climateiq_flood_simulation_bucket_set" {
 
   uniform_bucket_level_access = true
 }
+
+resource "google_artifact_registry_repository" "citycat-repository" {
+  project = var.project_id  
+  location      = var.location_id
+  repository_id = "citycat-repository"
+  description   = "Store the City Cat docker image"
+  format        = "DOCKER"
+}

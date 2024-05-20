@@ -92,6 +92,10 @@ gcloud artifacts repositories delete citycat-repo --location=us-central1
 ```
 </details>
 
+### Alternative ways to create the repository
+
+Alternatively, you can use the [terraform](../terraform/README.md) to create the repository.
+
 ## Build the image
 Using the steps above in [building the image locally](#to-build-the-image)
 

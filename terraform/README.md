@@ -1,6 +1,8 @@
 # Terraform for the flood modeling
 
-This directory includes terraform to setup 3 GCP Storage buckets for flood modeling.
+This directory includes terraform to setup the following:
+ - 3 GCP Storage buckets for flood modeling
+ - An artifact repository for the CityCat image
 
 ## Using Terraform 
 ### Pre-reqs
