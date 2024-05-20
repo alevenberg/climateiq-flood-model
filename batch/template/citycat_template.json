@@ -48,6 +48,9 @@
     }
    }
   ],
+  "labels": {
+    "project": "flood"
+  },
   "allocationPolicy": {
    "instances": [
     {
