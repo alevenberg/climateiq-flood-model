@@ -72,3 +72,8 @@ py src/main.py --dry_run --study_area studyarea_2 --memory 128 --config 1
 ```
 gcloud batch jobs delete --location=us-central1 <job_name>
 ```
+
+## To get information about a job
+```
+gcloud batch jobs describe studyarea-2 --location=us-central1
+```
