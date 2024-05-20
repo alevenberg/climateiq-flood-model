@@ -1,6 +1,8 @@
 # Batch job 
 
 ## Install the requirements
+- [ ] [gcloud CLI](https://cloud.google.com/sdk/docs/install)
+- [ ] [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Make sure the repo is update
 ```
