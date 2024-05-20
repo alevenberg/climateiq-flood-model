@@ -36,12 +36,8 @@ def main():
     # Read in the config.
     configs = []
     with open(os.path.join(batch_directory, "template", "config_" + str(args.config) + ".txt"), 'r') as f:
-        first_line = f.readline()
-        c,r = first_line.split()
-        assert c =="c", "config_*.text is not formatted correctly"
-        assert r == "r", "config_*.text is not formatted correctly"
         for line in f.readlines():
-            c,r = line.split()
+            _,c,_,r = line.split()
             configs.append({"CityCat_Config": c,  "Rainfall_Data": r})
 
     # Deletes anything previously in jobs directory
