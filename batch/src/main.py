@@ -50,6 +50,9 @@ def main():
         # Creates batch of jobs using the template
         job_uuid = uuid.uuid4().hex[:4]
         new_jobname = f"r{r}c{c}-{args.study_area}-config{args.config}-{job_uuid}"
+        # Underscores are not valid in the job name. It must follow the regex: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+        # This replaces any underscores for hyphens.
+        new_jobname = new_jobname.replace("_", "-") 
         with open(os.path.join(jobs_directory, f"{new_jobname}.json"), 'w') as f:
             # Modify the template, then dump it into the jobs folder
             new_job = template
