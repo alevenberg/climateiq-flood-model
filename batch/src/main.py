@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--configuration_bucket', default='citycat-config-test')
     parser.add_argument('--output_bucket',  default='citycat-output-test')
     parser.add_argument('--memory', choices=range(16,129),type=int,help="Value must be between 16 and 128", default=96)
+    parser.add_argument('--repository_name', default='citycat-repository')
 
     args = parser.parse_args()
     print(f"Program arguments {args}")
@@ -32,6 +33,8 @@ def main():
         memory = str(int(args.memory * 1024)) 
         template["taskGroups"][0]["taskSpec"]["computeResource"]["memoryMib"] = memory
         template["allocationPolicy"]["instances"][0]["policy"]["machineType"] =  "e2-custom-32-" +memory
+        # Change the image uri
+        template["taskGroups"][0]["taskSpec"]["runnables"][0]["container"]["imageUri"] = f"{args.region_id}-docker.pkg.dev/{args.project_id}/{args.repository_name}/citycat-image:latest"
 
     # Read in the config.
     configs = []
