@@ -72,8 +72,8 @@ gcloud config set project ${PROJECT_ID}
 
 Running the following script creates the repository: `citycat-repo`
 ```shell
-chmod +x ./artifact-repository/create.sh 
-./artifact-repository/create.sh
+chmod +x ../artifact_repository/create.sh 
+../artifact_repository/create.sh
 ```
 
 <details>
@@ -104,6 +104,6 @@ Using the steps above in [building the image locally](#to-build-the-image)
 Running the following script tags and pushes the image
 
 ```shell
-chmod +x ./artifact-repository/submit.sh 
-./artifact-repository/submit.sh
+chmod +x ../artifact_repository/submit.sh 
+../artifact_repository/submit.sh
 ```

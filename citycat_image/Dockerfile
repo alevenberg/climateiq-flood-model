@@ -39,6 +39,7 @@ ENV DRY_RUN=false
 
 # Copy entrypoint script and run
 WORKDIR /root
-COPY --chmod=0755 execute.sh .
+COPY execute.sh .
+RUN chmod +x execute.sh
 
 ENTRYPOINT ["bash", "/root/execute.sh"]
