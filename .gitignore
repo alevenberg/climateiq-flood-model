@@ -1,9 +1,9 @@
 # Omit any output
-citycat-image/citycat-output-test/*
+citycat-image/climateiq-flood-simulation-output/*
 # Omit because it is too large
-citycat-image/citycat-input-test/studyarea_1/Domain_DEM.asc
+citycat-image/climateiq-flood-simulation-input/studyarea_1/Domain_DEM.asc
 # Omit the CityCat.exe
-citycat-image/citycat-input-test/CityCat.exe
+citycat-image/climateiq-flood-simulation-input/CityCat.exe
 CityCat.exe
 
 # Local .terraform directories
