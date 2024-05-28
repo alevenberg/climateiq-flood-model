@@ -132,7 +132,8 @@ def _parse_rainfall_config(path: pathlib.Path) -> Sequence[_RainEvent]:
             raise ValueError(
                 "Rainfall entries separated by non-five minute interval: "
                 f"{prev_entry}, {next_entry}. Timesteps must consistently be five "
-                "minutes apart to support model training."
+                "minutes apart to support model training. Error raised in file:"
+                f" {path}"
             )
 
     return entries
