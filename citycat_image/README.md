@@ -31,7 +31,7 @@ CityCat, version 6.4.11.7852, written by vassilis glenis
 
 Pass the command a `-e` flag.
 ```
-docker run -it -e CITYCAT_CONFIG_FILE=2 -e RAINFALL_DATA_FILE=2 -e STUDY_AREA=manhattan -v $(pwd)/climateiq-flood-simulation-input:/mnt/disks/share/climateiq-flood-simulation-input -v $(pwd)/climateiq-flood-simulation-output:/mnt/disks/share/climateiq-flood-simulation-output -v $(pwd)/climateiq-flood-simulation-config:/mnt/disks/share/climateiq-flood-simulation-config citycat-image:latest 
+docker run -it -e CITYCAT_CONFIG_FILE=2 -e RAINFALL_DATA_FILE=2 -e STUDY_AREA=manhattan -e CONFIG=config_1 -v $(pwd)/citycat-input-test:/mnt/disks/share/citycat-input-test -v $(pwd)/citycat-output-test:/mnt/disks/share/citycat-output-test -v $(pwd)/citycat-config-test:/mnt/disks/share/citycat-config-test citycat-image:latest 
 ```
 
 
