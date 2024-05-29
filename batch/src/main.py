@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--template_name', default='citycat_template.json')
     parser.add_argument('--dry_run', action=argparse.BooleanOptionalAction)
     parser.add_argument('--study_area', default='studyarea-1')
-    parser.add_argument('--config', default=1)
+    parser.add_argument('--config', default="config-1")
     parser.add_argument('--input_bucket',  default='climateiq-flood-simulation-input')
     parser.add_argument('--configuration_bucket', default='climateiq-flood-simulation-config')
     parser.add_argument('--output_bucket',  default='climateiq-flood-simulation-output')
@@ -38,7 +38,7 @@ def main():
 
     # Read in the config.
     configs = []
-    with open(os.path.join(batch_directory, "template", "config_" + str(args.config) + ".txt"), 'r') as f:
+    with open(os.path.join(batch_directory, "template", str(args.config) + ".txt"), 'r') as f:
         for line in f.readlines():
             _,c,_,r = line.split()
             configs.append({"CityCat_Config": c,  "Rainfall_Data": r})
@@ -52,7 +52,7 @@ def main():
         r = config["Rainfall_Data"]
         # Creates batch of jobs using the template
         job_uuid = uuid.uuid4().hex[:4]
-        new_jobname = f"r{r}c{c}-{args.study_area}-config{args.config}-{job_uuid}"
+        new_jobname = f"r{r}c{c}-{args.study_area}-{args.config}-{job_uuid}"
         # Underscores are not valid in the job name. It must follow the regex: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
         # This replaces any underscores for hyphens.
         new_jobname = new_jobname.replace("_", "-") 
