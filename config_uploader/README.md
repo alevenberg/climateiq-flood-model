@@ -57,7 +57,7 @@ upload_citycat_config \
   --batch-configuration-path out/test_config.txt
 ```
 
-Should produce
+Should produce a `test_config.txt` and upload the RainfallData_X.txt and CityCat_Config_Y.txt files to the supplied bucket.
 
 ```
 -c 1 -r 1
