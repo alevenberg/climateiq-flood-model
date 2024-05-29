@@ -8,9 +8,6 @@ from typing import List, Mapping, Sequence
 import jinja2
 from google.cloud import storage
 
-_CITY_CAT_CONFIG_BUCKET = "citycat-config-test"
-
-
 @dataclasses.dataclass(slots=True)
 class _RainEvent:
     """The amount of rainfall occurring at a given time step."""
@@ -189,7 +186,7 @@ def _parse_args() -> argparse.Namespace:
         help=(
             "Name of the Google Cloud Storage bucket to upload configuration files to."
         ),
-        default="citycat-config-test",
+        default="climateiq-flood-simulation-config",
     )
 
     return parser.parse_args()
