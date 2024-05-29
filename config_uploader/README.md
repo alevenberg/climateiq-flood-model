@@ -46,3 +46,20 @@ See
 upload_citycat_config --help
 ```
 for more details.
+
+## Example
+
+```
+mkdir out
+upload_citycat_config \
+  --rainfall-directory data/test_config \
+  --configuration-name test_config \
+  --batch-configuration-path out/test_config.txt
+```
+
+Should produce
+
+```
+-c 1 -r 1
+-c 1 -r 2
+```
