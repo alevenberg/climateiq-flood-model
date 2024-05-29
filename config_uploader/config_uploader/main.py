@@ -8,7 +8,7 @@ from typing import List, Mapping, Sequence
 import jinja2
 from google.cloud import storage
 
-_CITY_CAT_CONFIG_BUCKET = "citycat-config-test"
+_CITY_CAT_CONFIG_BUCKET = "climateiq-flood-simulation-config"
 
 
 @dataclasses.dataclass(slots=True)
@@ -132,7 +132,8 @@ def _parse_rainfall_config(path: pathlib.Path) -> Sequence[_RainEvent]:
             raise ValueError(
                 "Rainfall entries separated by non-five minute interval: "
                 f"{prev_entry}, {next_entry}. Timesteps must consistently be five "
-                "minutes apart to support model training."
+                "minutes apart to support model training. Error raised in file:"
+                f" {path}"
             )
 
     return entries
@@ -189,7 +190,7 @@ def _parse_args() -> argparse.Namespace:
         help=(
             "Name of the Google Cloud Storage bucket to upload configuration files to."
         ),
-        default="citycat-config-test",
+        default="climateiq-flood-simulation-config",
     )
 
     return parser.parse_args()

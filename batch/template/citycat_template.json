@@ -28,21 +28,21 @@
      "volumes": [
       {
        "gcs": {
-        "remotePath": "citycat-config-test"
+        "remotePath": "climateiq-flood-simulation-config"
        },
-       "mountPath": "/mnt/disks/share/citycat-config-test"
+       "mountPath": "/mnt/disks/share/climateiq-flood-simulation-config"
       },
       {
         "gcs": {
-         "remotePath": "citycat-output-test"
+         "remotePath": "climateiq-flood-simulation-output"
         },
-        "mountPath": "/mnt/disks/share/citycat-output-test"
+        "mountPath": "/mnt/disks/share/climateiq-flood-simulation-output"
        }
     ,  {
       "gcs": {
-       "remotePath": "citycat-input-test"
+       "remotePath": "climateiq-flood-simulation-input"
       },
-      "mountPath": "/mnt/disks/share/citycat-input-test"
+      "mountPath": "/mnt/disks/share/climateiq-flood-simulation-input"
      }
      ]
     }

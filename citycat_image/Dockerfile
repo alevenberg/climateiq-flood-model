@@ -28,9 +28,9 @@ RUN dpkg --add-architecture i386 && \
     apt-get install -y --install-recommends winehq-stable
 
 # Set env variable defaults
-ENV INPUT_MOUNT_DIRECTORY=/mnt/disks/share/citycat-input-test
-ENV CONFIG_MOUNT_DIRECTORY=/mnt/disks/share/citycat-config-test
-ENV OUTPUT_MOUNT_DIRECTORY=/mnt/disks/share/citycat-output-test
+ENV INPUT_MOUNT_DIRECTORY=/mnt/disks/share/climateiq-flood-simulation-input
+ENV CONFIG_MOUNT_DIRECTORY=/mnt/disks/share/climateiq-flood-simulation-config
+ENV OUTPUT_MOUNT_DIRECTORY=/mnt/disks/share/climateiq-flood-simulation-output
 ENV STUDY_AREA="studyarea_1"
 ENV CONFIG="config_1"
 ENV CITYCAT_CONFIG_FILE=1
