@@ -8,6 +8,9 @@ from typing import List, Mapping, Sequence
 import jinja2
 from google.cloud import storage
 
+_CITY_CAT_CONFIG_BUCKET = "climateiq-flood-simulation-config"
+
+
 @dataclasses.dataclass(slots=True)
 class _RainEvent:
     """The amount of rainfall occurring at a given time step."""
@@ -129,7 +132,8 @@ def _parse_rainfall_config(path: pathlib.Path) -> Sequence[_RainEvent]:
             raise ValueError(
                 "Rainfall entries separated by non-five minute interval: "
                 f"{prev_entry}, {next_entry}. Timesteps must consistently be five "
-                "minutes apart to support model training."
+                "minutes apart to support model training. Error raised in file:"
+                f" {path}"
             )
 
     return entries

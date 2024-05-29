@@ -16,9 +16,9 @@ def main():
     parser.add_argument('--dry_run', action=argparse.BooleanOptionalAction)
     parser.add_argument('--study_area', default='studyarea-1')
     parser.add_argument('--config', default=1)
-    parser.add_argument('--input_bucket',  default='citycat-input-test')
-    parser.add_argument('--configuration_bucket', default='citycat-config-test')
-    parser.add_argument('--output_bucket',  default='citycat-output-test')
+    parser.add_argument('--input_bucket',  default='climateiq-flood-simulation-input')
+    parser.add_argument('--configuration_bucket', default='climateiq-flood-simulation-config')
+    parser.add_argument('--output_bucket',  default='climateiq-flood-simulation-output')
     parser.add_argument('--memory', choices=range(16,129),type=int,help="Value must be between 16 and 128", default=96)
     parser.add_argument('--repository_name', default='citycat-repository')
 
@@ -72,11 +72,11 @@ def main():
             # Set buckets
             for volume in new_job["taskGroups"][0]["taskSpec"]["volumes"]:
                 mountpath= volume["mountPath"]
-                if (mountpath == "/mnt/disks/share/citycat-input-test"):
+                if (mountpath == "/mnt/disks/share/climateiq-flood-simulation-input"):
                     volume["gcs"]["remotePath"] = args.input_bucket
-                elif (mountpath == "/mnt/disks/share/citycat-output-test"):
+                elif (mountpath == "/mnt/disks/share/climateiq-flood-simulation-output"):
                     volume["gcs"]["remotePath"] = args.output_bucket
-                elif (mountpath == "/mnt/disks/share/citycat-config-test"):
+                elif (mountpath == "/mnt/disks/share/climateiq-flood-simulation-config"):
                     volume["gcs"]["remotePath"] = args.configuration_bucket
 
             json.dump(new_job, f, indent=1)
