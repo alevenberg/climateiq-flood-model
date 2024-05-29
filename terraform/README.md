@@ -80,7 +80,7 @@ The following buckets except the following structure:
   - GreenAreas.txt
 
 ### Configuration bucket
-- config 1
+- config_1
   - CityCat_Config_1.txt
   - CityCat_Config_2.txt
   - Rainfall_Data_11.txt
@@ -97,6 +97,22 @@ Where config.txt stores the configuration of runs. For example, a `config.txt` a
 produces 4 runs of CityCat.exe -r X -c Y, where X is the first value and Y is the second.
 
 ### Output bucket
-  - R11C1_StudyArea1.zip
 
+The format is `<study_area_name>/<path_to_rainfall_data>/output_file.rsl`
 
+  - study_area1
+    - config_1
+      - Rainfall_data_11.txt
+        - R11_C1_T0_0min.rsl
+        - R11_C1_T1_5min.rs
+        - ...
+        - R11_C2_T0_0min.rsl
+        - R11_C2_T1_5min.rs
+        - ...
+      - Rainfall_data_12.txt
+        - R12_C1_T0_0min.rsl
+        - R12_C1_T1_5min.rs
+        - ....
+        - R12_C2_T0_0min.rsl
+        - R12_C2_T1_5min.rs
+        - ....
