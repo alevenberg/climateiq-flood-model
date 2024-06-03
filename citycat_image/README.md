@@ -105,5 +105,19 @@ Running the following script tags and pushes the image
 
 ```shell
 chmod +x ../artifact_repository/submit.sh 
-../artifact_repository/submit.sh
+PROJECT_ID="climateiq-test" ../artifact_repository/submit.sh
 ```
+
+<details>
+  <summary>Verify the project id is correct depending on what project you want to use</summary>
+
+If you are getting `denied: Permission "artifactregistry.repositories.uploadArtifacts" denied on resource "X"`, make sure the project id (PROJECT_ID) env variable is set to the correct one.
+
+You can also try the following
+```
+gcloud config set project ${PROJECT_ID}
+gcloud auth login application-default
+gcloud auth configure-docker ${LOCATION}-docker.pkg.dev
+```
+
+</details>

@@ -1,5 +1,4 @@
 LOCATION="us-central1"
-PROJECT_ID="climateiq-test"
 REPOSITORY="citycat-repository"
 
 # Create the repository

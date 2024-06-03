@@ -24,7 +24,7 @@ RUN dpkg --add-architecture i386 && \
     mkdir -pm755 /etc/apt/keyrings && \
     wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
     wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -sc)/winehq-$(lsb_release -sc).sources && \
-    apt-get update -y && \
+    apt-get update -y --fix-missing && \
     apt-get install -y --install-recommends winehq-stable
 
 # Set env variable defaults
